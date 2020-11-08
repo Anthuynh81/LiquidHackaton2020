@@ -1,5 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 group 'org.example'
@@ -9,7 +11,21 @@ repositories {
     mavenCentral()
 }
 
+javafx {
+    version = "13.0.2"
+    modules = ['javafx.controls', 'javafx.graphics']
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation 'no.tornado:tornadofx:1.7.20'
+    compile 'com.jfoenix:jfoenix:9.0.10'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "13"
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "13"
 }
